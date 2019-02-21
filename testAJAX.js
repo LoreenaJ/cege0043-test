@@ -3,7 +3,8 @@ var xhr;
 
 function callDivChange() {
 	xhr = new XMLHttpRequest();
-	xhr.open("GET", "test.html", true);
+	var filename = document.getElementById("filename").value;
+	xhr.open("GET", filename, true);
 	xhr.onreadystatechange = processDivChange;
 	xhr.send();
 }
