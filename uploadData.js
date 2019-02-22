@@ -5,6 +5,7 @@ function startDataUpload(){
 	var moduletitle = document.getElementById("module").value;
 	var postString = "name="+name+"&surname="+surname+"&module="+moduletitle;
 	alert(postString);
+	processData(postString);
 }
 
 //make a global variable to hold the request
@@ -22,7 +23,7 @@ function processData(postString){
 	client.onreadystatechange() = dataUpload;
 	//send the post String
 	client.send(postString);
-p}
+}
 
 //add an event listener function to wait for the response from the data server and process that response once received
 function dataUpload(){
