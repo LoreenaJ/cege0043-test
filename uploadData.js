@@ -8,6 +8,7 @@ function startDataUpload(){
 	var postString = "name="+name+"&surname="+surname+"&module="+moduletitle;
 	//get the checkbox values
 	var checkString = "";
+	//loop for all boxes
 	for (var i = 1;i < 5;i++){
 		if (document.getElementById("check"+i).checked == true){
 			checkString = checkString + document.getElementById("check"+i).value+"||"
@@ -25,6 +26,10 @@ function startDataUpload(){
 	//get the select box value
 	var language = document.getElementById("languageselectbox").value;
 	postString = postString+"&language="+language;
+	//get the values for the coordinate information
+	var latitude = document.getElementById("latitude").value;
+	var longitude = document.getElementById("longitude").value;
+	postString = postString+"&latitude="+latitude+"&longitude="+longitude;
 	//return an alert to check this has worked
 	alert(postString);
 	//call the processing function
