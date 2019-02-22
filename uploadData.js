@@ -16,7 +16,7 @@ function processData(postString){
 	//make a new request using the client variable
 	client = new XMLHttpRequest();
 	//use the server to bounce the data back to us using /reflectData
-	client.open('POST','https://developer.cege.ucl.ac.uk:31082/reflectData',true);
+	client.open('POST','http://developer.cege.ucl.ac.uk:30282/reflectData',true);
 	//inform the server of the type of data
 	client.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	//call the function to upload the data when the client is ready
