@@ -1,17 +1,30 @@
-//create a post String with the data
+//create a POST String with the data
 function startDataUpload(){
+	//get the textbox values
 	var name = document.getElementById("name").value;
 	var surname = document.getElementById("surname").value;
 	var moduletitle = document.getElementById("module").value;
+	//plave the values in a POST string to send to the server
 	var postString = "name="+name+"&surname="+surname+"&module="+moduletitle;
+	//get the checkbox values
+	var checkString = "";
+	for (var i = 1;i < 5;i++){
+		if (document.getElementById("check"+i).checked == true){
+			checkString = checkString + document.getElementById("check"+i).value+"||"
+		}
+	}
+	//add the new checkbox values to the original POST string
+	postString = postString + "&modulelist" + checkString;
+	//return an alert to check this has worked
 	alert(postString);
+	//call the processing function
 	processData(postString);
 }
 
 //make a global variable to hold the request
 var client;
 
-//process the post String
+//process the POST String
 function processData(postString){
 	//make a new request using the client variable
 	client = new XMLHttpRequest();
