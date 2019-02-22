@@ -14,7 +14,17 @@ function startDataUpload(){
 		}
 	}
 	//add the new checkbox values to the original POST string
-	postString = postString + "&modulelist" + checkString;
+	postString = postString+"&modulelist="+checkString;
+	//get the radio button value depending on whether the morning or afternoon option is checked
+	if (document.getElementById("morning").checked){
+		postString = postString+"&lecturetime=morning";
+	}
+	if (document.getElementById("afternoon").checked){
+		postString = postString+"&lecturetime=afternoon";
+	}
+	//get the select box value
+	var language = document.getElementById("languageselectbox").value;
+	postString = postString+"&language="+language;
 	//return an alert to check this has worked
 	alert(postString);
 	//call the processing function
