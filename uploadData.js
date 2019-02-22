@@ -20,7 +20,7 @@ function processData(postString){
 	//inform the server of the type of data
 	client.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	//call the function to upload the data when the client is ready
-	client.onreadystatechange() = dataUpload;
+	client.onreadystatechange = dataUpload;
 	//send the post String
 	client.send(postString);
 }
