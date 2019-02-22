@@ -7,21 +7,29 @@ function startDataUpload(){
 	alert(postString);
 	processData(postString);
 }
-var client; // the global variable that holds the request
-function processData(postString) {
-client = new XMLHttpRequest();
-client.open('POST','http://developer.cege.ucl.ac.uk:30282/reflectData',true);
-client.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-client.onreadystatechange = dataUploaded;
-client.send(postString);
-p}
-// create the code to wait for the response from the data server, and process the
-response once it is received
-function dataUploaded() {
-// this function listens out for the server to say that the data is ready - i.e.
-has state 4
-if (client.readyState == 4) {
-// change the DIV to show the response
-document.getElementById("dataUploadResult").innerHTML = client.responseText;
+
+//make a global variable to hold the request
+var client;
+
+//process the post String
+function processData(postString){
+	//make a new request using the client variable
+	client = new XMLHttpRequest();
+	//use the server to bounce the data back to us using /reflectData
+	client.open('POST','http://developer.cege.ucl.ac.uk:30282/reflectData',true);
+	//inform the server of the type of data
+	client.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	//call the function to upload the data when the client is ready
+	client.onreadystatechange() = dataUpload;
+	//send the post String
+	client.send(postString);
 }
+
+//add an event listener function to wait for the response from the data server and process that response once received
+function dataUpload(){
+	//if the client has state 4, the data is ready
+	if (client.readyState == 4){
+		//change the DIV to show the response
+		document.getElementById("dataUploadResult").innerHTML = client.responseText;
+	}
 }
